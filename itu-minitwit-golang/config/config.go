@@ -1,9 +1,10 @@
 package config
 
 import (
-	"github.com/joho/godotenv"
 	"os"
 	"strconv"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -19,7 +20,7 @@ func LoadConfig() (*Config, error) {
 	config := &Config{}
 
 	config.Port = getEnvAsInt("PORT", 8080)
-	config.DBPath = getEnv("DB_PATH", "database.sqlite")
+	config.DBPath = getEnv("DB_PATH", "minitwit.db")
 	config.Environment = getEnv("ENVIRONMENT", "development")
 
 	return config, nil
